@@ -1,0 +1,10 @@
+RewriteEngine On
+
+RewriteRule ^data(?:/|$) - [F,L]
+RewriteRule ^$ router.php [QSA,L]
+RewriteRule ^layout\.html$ router.php [QSA,L]
+
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^ - [L]
+
+RewriteRule ^ router.php [QSA,L]
