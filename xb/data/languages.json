@@ -1,0 +1,32 @@
+{
+  "nav_home": { "es": "Inicio", "en": "Home" },
+  "nav_games": { "es": "Juegos", "en": "Games" },
+  "nav_blog": { "es": "Blog", "en": "Blog" },
+  "nav_forums": { "es": "Foros", "en": "Forums" },
+  "home_title": { "es": "Bienvenido a la era Original", "en": "Welcome to the Original Era" },
+  "home_desc": {
+    "es": "Revive la nostalgia de la consola que revolucionó la industria del gaming. Explora nuestro catálogo, únete a la comunidad y enciende la X.",
+    "en": "Relive the nostalgia of the console that revolutionized the gaming industry. Explore our catalog, join the community and power on the X."
+  },
+  "games_title": { "es": "Clásicos Inolvidables", "en": "Unforgettable Classics" },
+  "blog_title": { "es": "Últimas Entradas", "en": "Latest Posts" },
+  "forums_title": { "es": "Comunidad Xbox", "en": "Xbox Community" },
+  "game_metadata_title": { "es": "Información del juego", "en": "Game information" },
+  "developers": { "es": "Desarrollador(es)", "en": "Developer(s)" },
+  "publishers": { "es": "Editor(es)", "en": "Publisher(s)" },
+  "release_date": { "es": "Fecha de lanzamiento", "en": "Release date" },
+  "region_pal": { "es": "PAL", "en": "PAL" },
+  "region_jp": { "es": "Japón", "en": "Japan" },
+  "region_na": { "es": "Norteamérica", "en": "North America" },
+  "not_released": { "es": "No publicado", "en": "Not released" },
+  "search_label": { "es": "Buscar", "en": "Search" },
+  "search_placeholder": { "es": "Título, descripción o contenido", "en": "Title, description, or content" },
+  "search_games_placeholder": { "es": "Título, descripción, desarrollador, editor o fecha", "en": "Title, description, developer, publisher, or release date" },
+  "no_search_results": { "es": "No se encontraron resultados.", "en": "No results found." },
+  "detail_back": { "es": "Volver", "en": "Back" },
+  "not_found": { "es": "No se encontró el contenido solicitado.", "en": "The requested content could not be found." },
+  "footer_text": {
+    "es": "© 2026 Xbox Classic Fanpage. Creado por Armindeck. No afiliado a Microsoft.",
+    "en": "© 2026 Xbox Classic Fanpage. Created width Armindeck. Not affiliated with Microsoft."
+  }
+}

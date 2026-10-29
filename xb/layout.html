@@ -1,0 +1,1183 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Xbox Clásico | Juegos, historia y comunidad</title>
+    <meta
+      name="description"
+      content="Revive la era de la Xbox original: descubre juegos clásicos, artículos, guías y una comunidad dedicada a la consola." />
+    <meta name="theme-color" content="#050505" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_CO" />
+    <meta property="og:url" id="og-url" content="http://localhost/" />
+    <meta
+      property="og:title"
+      content="Xbox Clásico | Juegos, historia y comunidad" />
+    <meta
+      property="og:description"
+      content="Descubre juegos clásicos, artículos y una comunidad dedicada a la Xbox original." />
+    <meta
+      property="og:image"
+      content="https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" />
+    <meta
+      property="og:image:alt"
+      content="Escena de videojuegos para la comunidad Xbox Clásico" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Xbox Clásico | Juegos, historia y comunidad" />
+    <meta
+      name="twitter:description"
+      content="Descubre juegos clásicos, artículos y una comunidad dedicada a la Xbox original." />
+    <meta
+      name="twitter:image"
+      content="https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="64x64"
+      href="/assets/img/favicon.png" />
+    <link rel="canonical" id="canonical-link" href="http://localhost/" />
+    <!-- Fuentes para el estilo retro-tech -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;600&display=swap"
+      rel="stylesheet" />
+
+    <style>
+      /* Variables CSS para Temas */
+      :root {
+        /* Tema Oscuro (Por defecto - Estilo Original Xbox) */
+        --bg-color: #050505;
+        --surface-color: #121212;
+        --text-color: #e0e0e0;
+        --xbox-green: #39ff14; /* Verde Neón */
+        --xbox-green-dark: #1f8a0a;
+        --border-color: #333333;
+        --shadow-glow: 0 0 15px rgba(57, 255, 20, 0.4);
+      }
+
+      [data-theme="light"] {
+        /* Tema Claro */
+        --bg-color: #e5e5e5;
+        --surface-color: #ffffff;
+        --text-color: #1a1a1a;
+        --xbox-green: #107c10; /* Verde Xbox Moderno/Claro */
+        --xbox-green-dark: #0b590b;
+        --border-color: #cccccc;
+        --shadow-glow: 0 0 15px rgba(16, 124, 16, 0.3);
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Rajdhani", sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        transition:
+          background-color 0.3s,
+          color 0.3s;
+        overflow-x: hidden;
+      }
+
+      h1,
+      h2,
+      h3,
+      .nav-logo {
+        font-family: "Orbitron", sans-serif;
+        text-transform: uppercase;
+      }
+
+      /* HEADER & NAV */
+      header {
+        background-color: var(--surface-color);
+        border-bottom: 2px solid var(--xbox-green);
+        padding: 1rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: var(--shadow-glow);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+
+      .nav-logo {
+        font-size: 1.8rem;
+        color: var(--xbox-green);
+        font-weight: 900;
+        letter-spacing: 2px;
+        text-shadow: 0 0 5px var(--xbox-green);
+        cursor: pointer;
+      }
+
+      .header-menu {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+      }
+
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 1.5rem;
+      }
+
+      nav ul li a {
+        color: var(--text-color);
+        text-decoration: none;
+        font-size: 1.1rem;
+        font-weight: 600;
+        transition: color 0.2s;
+        cursor: pointer;
+      }
+
+      nav ul li a:hover,
+      nav ul li a.active {
+        color: var(--xbox-green);
+        text-shadow: 0 0 8px var(--xbox-green);
+      }
+
+      .controls {
+        display: flex;
+        gap: 1rem;
+      }
+
+      .menu-toggle {
+        display: none;
+        width: 44px;
+        height: 44px;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 5px;
+        border: 1px solid var(--xbox-green);
+        background: transparent;
+        cursor: pointer;
+      }
+
+      .menu-toggle span {
+        width: 20px;
+        height: 2px;
+        background-color: var(--xbox-green);
+        transition:
+          transform 0.2s,
+          opacity 0.2s;
+      }
+
+      .menu-toggle[aria-expanded="true"] span:first-child {
+        transform: translateY(7px) rotate(45deg);
+      }
+
+      .menu-toggle[aria-expanded="true"] span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .menu-toggle[aria-expanded="true"] span:last-child {
+        transform: translateY(-7px) rotate(-45deg);
+      }
+
+      .btn {
+        background-color: transparent;
+        color: var(--xbox-green);
+        border: 1px solid var(--xbox-green);
+        padding: 0.4rem 0.8rem;
+        font-family: "Orbitron", sans-serif;
+        font-size: 0.9rem;
+        cursor: pointer;
+        transition: all 0.2s;
+        text-transform: uppercase;
+      }
+
+      .btn:hover {
+        background-color: var(--xbox-green);
+        color: var(--bg-color);
+        box-shadow: var(--shadow-glow);
+      }
+
+      @media (max-width: 700px) {
+        header {
+          display: grid;
+          grid-template-columns: minmax(0, 1fr) auto;
+          gap: 0.5rem 0.75rem;
+          padding: 0.75rem 1rem;
+        }
+
+        .nav-logo {
+          font-size: 1.2rem;
+          letter-spacing: 1px;
+        }
+
+        .menu-toggle {
+          display: flex;
+        }
+
+        .header-menu {
+          display: none;
+          grid-column: 1 / -1;
+          grid-row: 2;
+          width: 100%;
+          padding-top: 0.75rem;
+          border-top: 1px solid var(--border-color);
+        }
+
+        .header-menu.open {
+          display: grid;
+          gap: 0.75rem;
+        }
+
+        nav ul {
+          flex-direction: column;
+          gap: 0;
+        }
+
+        nav ul li a {
+          display: block;
+          padding: 0.5rem 0;
+          font-size: 1rem;
+        }
+
+        .controls {
+          flex-wrap: wrap;
+          gap: 0.5rem;
+        }
+
+        .btn {
+          padding: 0.35rem 0.5rem;
+          font-size: 0.7rem;
+        }
+      }
+
+      /* MAIN CONTENT */
+      main {
+        padding: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+        min-height: 80vh;
+      }
+
+      .section {
+        display: none;
+        animation: fadeIn 0.4s ease-in-out;
+      }
+
+      .section.active {
+        display: block;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* XBOX ORB DECORATION */
+      .xbox-orb {
+        width: 150px;
+        height: 150px;
+        background: radial-gradient(circle, var(--xbox-green) 0%, #000000 70%);
+        border-radius: 50%;
+        margin: 0 auto 2rem auto;
+        box-shadow:
+          inset 0 0 20px #000,
+          0 0 50px var(--xbox-green);
+        border: 4px solid #111;
+      }
+
+      [data-theme="light"] .xbox-orb {
+        background: radial-gradient(circle, var(--xbox-green) 0%, #ffffff 70%);
+        border: 4px solid #ccc;
+      }
+
+      /* HOME SECTION */
+      #home {
+        text-align: center;
+        padding-top: 2rem;
+      }
+
+      #home h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        color: var(--text-color);
+      }
+
+      #home p {
+        font-size: 1.2rem;
+        color: #888;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      /* GAMES SECTION */
+      .games-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+      }
+
+      .game-card {
+        display: block;
+        background-color: var(--surface-color);
+        border: 1px solid var(--border-color);
+        padding: 0 0 1.5rem;
+        color: var(--text-color);
+        text-decoration: none;
+        text-align: center;
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s;
+        border-top: 3px solid var(--xbox-green);
+      }
+
+      .game-card[hidden],
+      .route-item[hidden] {
+        display: none !important;
+      }
+
+      .game-image {
+        display: block;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+        border-bottom: 1px solid var(--border-color);
+      }
+
+      .route-image {
+        display: block;
+        width: 120px;
+        height: 78px;
+        flex: 0 0 auto;
+        object-fit: cover;
+        border: 1px solid var(--border-color);
+      }
+
+      @media (max-width: 480px) {
+        .route-image {
+          width: 88px;
+          height: 68px;
+        }
+      }
+
+      .game-card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-glow);
+      }
+
+      .game-card:focus-visible,
+      .route-item:focus-visible {
+        outline: 2px solid var(--xbox-green);
+        outline-offset: 3px;
+      }
+
+      .game-card h3 {
+        margin: 1rem 1rem 0.5rem;
+        color: var(--xbox-green);
+      }
+
+      .game-card p {
+        padding: 0 1.5rem;
+      }
+
+      .catalog-search {
+        display: grid;
+        grid-template-columns: auto minmax(0, 360px);
+        align-items: center;
+        gap: 0.75rem;
+        margin-top: 1rem;
+        color: var(--text-color);
+        font-weight: 600;
+      }
+
+      .catalog-search input {
+        width: 100%;
+        min-width: 0;
+        padding: 0.65rem 0.75rem;
+        border: 1px solid var(--border-color);
+        border-radius: 0;
+        background: var(--surface-color);
+        color: var(--text-color);
+        font: inherit;
+      }
+
+      .catalog-search input:focus-visible {
+        outline: 2px solid var(--xbox-green);
+        outline-offset: 2px;
+      }
+
+      .search-empty {
+        margin-top: 1rem;
+        color: var(--text-color);
+      }
+
+      @media (max-width: 480px) {
+        .catalog-search {
+          grid-template-columns: 1fr;
+          gap: 0.35rem;
+        }
+      }
+
+      .markdown-content > :first-child {
+        margin-top: 0;
+      }
+
+      .markdown-content > :last-child {
+        margin-bottom: 0;
+      }
+
+      .card-description {
+        padding: 0 1.5rem;
+      }
+
+      .route-item .card-description {
+        padding: 0;
+      }
+
+      .markdown-content ul,
+      .markdown-content ol {
+        margin: 0.75rem 0;
+        padding-left: 1.5rem;
+        text-align: left;
+      }
+
+      .markdown-content a {
+        color: var(--xbox-green);
+      }
+
+      #detail-content {
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      .detail-back {
+        display: inline-block;
+        margin-bottom: 1.5rem;
+      }
+
+      .detail-image {
+        display: block;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+        margin: 1.5rem 0;
+        border: 1px solid var(--border-color);
+      }
+
+      #detail-content h1 {
+        margin-bottom: 1rem;
+      }
+
+      #detail-content p {
+        margin: 0.75rem 0;
+        font-size: 1.1rem;
+      }
+
+      .game-metadata-title {
+        margin-top: 2rem;
+        font-size: 1.25rem;
+        color: var(--xbox-green);
+      }
+
+      .game-metadata {
+        display: grid;
+        grid-template-columns: minmax(9rem, auto) minmax(0, 1fr);
+        gap: 0.65rem 1rem;
+        margin-top: 0.75rem;
+      }
+
+      .game-metadata dt {
+        font-weight: 600;
+        color: var(--xbox-green);
+      }
+
+      .game-metadata dd {
+        min-width: 0;
+        overflow-wrap: anywhere;
+      }
+
+      @media (max-width: 480px) {
+        .game-metadata {
+          grid-template-columns: 1fr;
+          gap: 0.2rem;
+        }
+
+        .game-metadata dd {
+          margin-bottom: 0.6rem;
+        }
+      }
+
+      /* BLOG & FORUMS */
+      .list-container {
+        background-color: var(--surface-color);
+        border: 1px solid var(--border-color);
+        margin-top: 1.5rem;
+      }
+
+      .list-item {
+        padding: 1rem 1.5rem;
+        border-bottom: 1px solid var(--border-color);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .route-item {
+        color: var(--text-color);
+        text-decoration: none;
+      }
+
+      .list-item:last-child {
+        border-bottom: none;
+      }
+
+      .list-item h3 {
+        font-family: "Rajdhani", sans-serif;
+        font-size: 1.2rem;
+      }
+
+      .list-item:hover {
+        background-color: rgba(57, 255, 20, 0.05);
+        cursor: pointer;
+      }
+
+      /* FOOTER */
+      footer {
+        text-align: center;
+        padding: 1.5rem;
+        background-color: var(--surface-color);
+        border-top: 1px solid var(--border-color);
+        font-size: 0.9rem;
+        color: #666;
+      }
+    </style>
+  </head>
+  <body data-theme="dark">
+    <header>
+      <div class="nav-logo" id="nav-brand" onclick="switchTab('home')">XBOX CLASSIC</div>
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-label="Menú de navegación"
+        aria-expanded="false"
+        aria-controls="header-menu"
+        onclick="toggleMenu()">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </button>
+      <div class="header-menu" id="header-menu">
+        <nav aria-label="Navegación principal">
+          <ul>
+            <li>
+              <a
+                class="nav-link active"
+                href="#/"
+                data-route-link
+                data-section="home"
+                data-i18n="nav_home"
+                >Inicio</a
+              >
+            </li>
+            <li>
+              <a
+                class="nav-link"
+                href="#/games"
+                data-route-link
+                data-section="games"
+                data-i18n="nav_games"
+                >Juegos</a
+              >
+            </li>
+            <li>
+              <a
+                class="nav-link"
+                href="#/blog"
+                data-route-link
+                data-section="blog"
+                data-i18n="nav_blog"
+                >Blog</a
+              >
+            </li>
+            <li>
+              <a
+                class="nav-link"
+                href="#/forums"
+                data-route-link
+                data-section="forums"
+                data-i18n="nav_forums"
+                >Foros</a
+              >
+            </li>
+          </ul>
+        </nav>
+        <div class="controls">
+          <button class="btn" onclick="toggleTheme()" id="theme-btn">
+            ☀️ Light
+          </button>
+          <button class="btn" onclick="toggleLanguage()" id="lang-btn">
+            🇺🇸 EN
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- SECCIÓN: INICIO -->
+      <section id="home" class="section active">
+        <div class="xbox-orb"></div>
+        <h1 data-i18n="home_title">Bienvenido a la era Original</h1>
+        <p data-i18n="home_desc">
+          Revive la nostalgia de la consola que revolucionó la industria del
+          gaming. Explora nuestro catálogo, únete a la comunidad y enciende la
+          X.
+        </p>
+      </section>
+
+      <!-- SECCIÓN: JUEGOS -->
+      <section id="games" class="section">
+        <h2 data-i18n="games_title">Clásicos Inolvidables</h2>
+        <label class="catalog-search">
+          <span data-i18n="search_label">Buscar</span>
+          <input
+            id="games-search"
+            type="search"
+            data-catalog-search="games"
+            data-i18n-placeholder="search_games_placeholder"
+            placeholder="Título, descripción, desarrollador, editor o fecha" />
+        </label>
+        <p
+          class="search-empty"
+          id="games-no-results"
+          data-i18n="no_search_results"
+          hidden>
+          No se encontraron resultados.
+        </p>
+        <div class="games-grid" id="games-grid"></div>
+      </section>
+
+      <!-- SECCIÓN: BLOG -->
+      <section id="blog" class="section">
+        <h2 data-i18n="blog_title">Últimas Entradas</h2>
+        <label class="catalog-search">
+          <span data-i18n="search_label">Buscar</span>
+          <input
+            id="blogs-search"
+            type="search"
+            data-catalog-search="blogs"
+            data-i18n-placeholder="search_placeholder"
+            placeholder="Título, descripción o contenido" />
+        </label>
+        <p
+          class="search-empty"
+          id="blogs-no-results"
+          data-i18n="no_search_results"
+          hidden>
+          No se encontraron resultados.
+        </p>
+        <div class="list-container" id="blog-list"></div>
+      </section>
+
+      <!-- SECCIÓN: FOROS -->
+      <section id="forums" class="section">
+        <h2 data-i18n="forums_title">Comunidad Xbox</h2>
+        <label class="catalog-search">
+          <span data-i18n="search_label">Buscar</span>
+          <input
+            id="forums-search"
+            type="search"
+            data-catalog-search="forums"
+            data-i18n-placeholder="search_placeholder"
+            placeholder="Título, descripción o contenido" />
+        </label>
+        <p
+          class="search-empty"
+          id="forums-no-results"
+          data-i18n="no_search_results"
+          hidden>
+          No se encontraron resultados.
+        </p>
+        <div class="list-container" id="forum-list"></div>
+      </section>
+
+      <section id="detail" class="section">
+        <div id="detail-content"></div>
+      </section>
+    </main>
+
+    <footer>
+      <p data-i18n="footer_text">
+        © 2026 Armin Deck.
+      </p>
+      <p data-i18n="footer_version"></p>
+    </footer>
+
+    <!-- APP_DATA -->
+    <script src="https://cdn.jsdelivr.net/npm/marked@15.0.7/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@3.2.4/dist/purify.min.js"></script>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+      // --- NAVEGACIÓN SPA (Single Page Application) ---
+      function switchTab(tabId) {
+        navigateTo(sectionPaths[tabId] || "/");
+      }
+
+      function toggleMenu() {
+        const menu = document.getElementById("header-menu");
+        const menuButton = document.querySelector(".menu-toggle");
+        const isOpen = menu.classList.toggle("open");
+        menuButton.setAttribute("aria-expanded", isOpen);
+      }
+
+      function closeMenu() {
+        document.getElementById("header-menu").classList.remove("open");
+        document
+          .querySelector(".menu-toggle")
+          .setAttribute("aria-expanded", "false");
+      }
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          closeMenu();
+        }
+      });
+
+      document.addEventListener("click", (event) => {
+        const link = event.target.closest("a[data-route-link]");
+        if (
+          !link ||
+          event.button !== 0 ||
+          event.metaKey ||
+          event.ctrlKey ||
+          event.shiftKey ||
+          event.altKey
+        ) {
+          return;
+        }
+        event.preventDefault();
+        const target = new URL(link.getAttribute("href"), window.location.href);
+        navigateTo(
+          target.hash.startsWith("#/") ? target.hash.slice(1) : target.pathname,
+        );
+      });
+
+      window.addEventListener("popstate", () => renderRoute());
+      window.addEventListener("hashchange", () => renderRoute());
+
+      // --- MODO CLARO / OSCURO ---
+      const savedTheme = localStorage.getItem("theme");
+      let currentTheme = savedTheme === "light" ? "light" : "dark";
+
+      function applyTheme() {
+        document.body.setAttribute("data-theme", currentTheme);
+        document.getElementById("theme-btn").innerText =
+          currentTheme === "dark" ? "☀️ Light" : "🌙 Dark";
+      }
+
+      function toggleTheme() {
+        currentTheme = currentTheme === "dark" ? "light" : "dark";
+        localStorage.setItem("theme", currentTheme);
+        applyTheme();
+      }
+
+      // --- SISTEMA DE TRADUCCIÓN (ES / EN) ---
+      const savedLang = localStorage.getItem("language");
+      let currentLang = savedLang === "en" ? "en" : "es";
+      const appData = window.APP_DATA;
+      const translations = appData.languages;
+      const coreData = appData.core;
+      const siteConfig = appData.config;
+
+      const sectionPaths = {
+        home: "/",
+        games: "/games",
+        blog: "/blog",
+        forums: "/forums",
+      };
+
+      const gamesData = appData.games;
+      const blogsData = appData.blogs;
+      const forumsData = appData.forums;
+      const searchFilters = { games: "", blogs: "", forums: "" };
+
+      function localized(value) {
+        return typeof value === "string" ? value : value[currentLang];
+      }
+
+      function renderMarkdown(element, markdown) {
+        element.classList.add("markdown-content");
+        if (!window.marked || !window.DOMPurify) {
+          element.textContent = markdown || "";
+          return;
+        }
+        element.innerHTML = DOMPurify.sanitize(marked.parse(markdown || ""));
+      }
+
+      function routeHref(path) {
+        return window.location.protocol === "file:"
+          ? `${window.location.pathname}#${path}`
+          : path;
+      }
+
+      function createCardLink(item, type, className) {
+        const link = document.createElement("a");
+        link.href = routeHref(`/${type}/${item.slug}`);
+        link.dataset.routeLink = "";
+        link.className = className;
+        link.dataset.searchText = searchableTextForItem(item);
+
+        if (item.image) {
+          const image = document.createElement("img");
+          image.className = type === "game" ? "game-image" : "route-image";
+          image.src = item.image;
+          image.alt = localized(item.imageAlt);
+          image.loading = "lazy";
+          link.append(image);
+        }
+
+        const details = document.createElement("div");
+        if (type !== "game") {
+          const title = document.createElement("h3");
+          renderMarkdown(title, localized(item.title));
+          details.append(title);
+        } else {
+          const title = document.createElement("h3");
+          renderMarkdown(title, localized(item.title));
+          link.append(title);
+        }
+
+        const description = document.createElement("div");
+        description.className = "card-description";
+        renderMarkdown(description, localized(item.description));
+        details.append(description);
+
+        if (type !== "game") {
+          link.append(details);
+          const meta = document.createElement("span");
+          meta.style.color = "var(--xbox-green)";
+          meta.textContent =
+            item.posts === undefined
+              ? "►"
+              : `${item.posts.toLocaleString(currentLang)} ${currentLang === "es" ? "publicaciones" : "posts"}`;
+          link.append(meta);
+        } else {
+          link.append(description);
+        }
+
+        return link;
+      }
+
+      function normalizeSearchText(text) {
+        return text
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, "")
+          .toLocaleLowerCase();
+      }
+
+      function searchableTextForItem(item) {
+        const searchableFields = ["title", "description", "content"];
+        const searchableValues = searchableFields.flatMap((field) => {
+          const value = item[field];
+          return typeof value === "string"
+            ? [value]
+            : Object.values(value || {});
+        });
+
+        if (Array.isArray(item.developers)) {
+          searchableValues.push(...item.developers);
+        }
+        if (Array.isArray(item.publishers)) {
+          searchableValues.push(...item.publishers);
+        }
+        if (item.releaseDate) {
+          searchableValues.push(...Object.values(item.releaseDate));
+        }
+
+        return normalizeSearchText(searchableValues.filter(Boolean).join(" "));
+      }
+
+      function renderCollection(key, rebuild = false) {
+        const config = {
+          games: {
+            items: gamesData,
+            type: "game",
+            className: "game-card",
+            listId: "games-grid",
+          },
+          blogs: {
+            items: blogsData,
+            type: "blog",
+            className: "list-item route-item",
+            listId: "blog-list",
+          },
+          forums: {
+            items: forumsData,
+            type: "forum",
+            className: "list-item route-item",
+            listId: "forum-list",
+          },
+        }[key];
+        const list = document.getElementById(config.listId);
+        if (rebuild) {
+          list.replaceChildren(
+            ...config.items.map((item) =>
+              createCardLink(item, config.type, config.className),
+            ),
+          );
+        }
+
+        const query = normalizeSearchText(searchFilters[key]);
+        let visibleCount = 0;
+        list.querySelectorAll("[data-search-text]").forEach((card) => {
+          const isMatch = !query || card.dataset.searchText.includes(query);
+          card.hidden = !isMatch;
+          if (isMatch) {
+            visibleCount++;
+          }
+        });
+        document.getElementById(`${key}-no-results`).hidden = visibleCount > 0;
+      }
+
+      function renderCollections() {
+        renderCollection("games", true);
+        renderCollection("blogs", true);
+        renderCollection("forums", true);
+      }
+
+      document.querySelectorAll("[data-catalog-search]").forEach((input) => {
+        input.addEventListener("input", () => {
+          const key = input.dataset.catalogSearch;
+          searchFilters[key] = input.value.trim();
+          renderCollection(key);
+        });
+      });
+
+      function navigateTo(path) {
+        closeMenu();
+        const target = routeHref(path);
+        if (`${window.location.pathname}${window.location.hash}` !== target) {
+          window.history.pushState({}, "", target);
+        }
+        renderRoute(path);
+      }
+
+      function renderDetail(item, type) {
+        const content = document.getElementById("detail-content");
+        content.replaceChildren();
+
+        const backLink = document.createElement("a");
+        const backSection =
+          type === "game" ? "games" : type === "forum" ? "forums" : "blog";
+        backLink.href = routeHref(sectionPaths[backSection]);
+        backLink.dataset.routeLink = "";
+        backLink.className = "btn detail-back";
+        backLink.textContent = translations.detail_back[currentLang];
+        content.append(backLink);
+
+        const title = document.createElement("h1");
+        renderMarkdown(title, localized(item.title));
+        content.append(title);
+
+        if (item.image) {
+          const image = document.createElement("img");
+          image.className = "detail-image";
+          image.src = item.image;
+          image.alt = localized(item.imageAlt);
+          content.append(image);
+        }
+
+        const description = document.createElement("div");
+        renderMarkdown(description, localized(item.description));
+        content.append(description);
+
+        const body = document.createElement("div");
+        renderMarkdown(body, localized(item.content));
+        content.append(body);
+
+        if (type === "game") {
+          const metadataTitle = document.createElement("h2");
+          metadataTitle.className = "game-metadata-title";
+          metadataTitle.textContent =
+            translations.game_metadata_title[currentLang];
+          content.append(metadataTitle);
+
+          const metadata = document.createElement("dl");
+          metadata.className = "game-metadata";
+          appendMetadataRow(
+            metadata,
+            translations.developers[currentLang],
+            item.developers,
+          );
+          appendMetadataRow(
+            metadata,
+            translations.publishers[currentLang],
+            item.publishers,
+          );
+
+          const regions = [
+            ["PAL", translations.region_pal[currentLang]],
+            ["JP", translations.region_jp[currentLang]],
+            ["NA", translations.region_na[currentLang]],
+          ];
+          regions.forEach(([region, label]) => {
+            const releaseDate = item.releaseDate?.[region];
+            appendMetadataRow(
+              metadata,
+              `${translations.release_date[currentLang]} (${label})`,
+              releaseDate || translations.not_released[currentLang],
+            );
+          });
+
+          content.append(metadata);
+        }
+      }
+
+      function appendMetadataRow(list, label, value) {
+        const term = document.createElement("dt");
+        term.textContent = label;
+        const description = document.createElement("dd");
+        description.textContent =
+          Array.isArray(value) && value.length
+            ? value.join(", ")
+            : value || translations.not_released[currentLang];
+        list.append(term, description);
+      }
+
+      function renderRoute(path = getCurrentPath()) {
+        closeMenu();
+        const normalizedPath = path.replace(/\/+$/, "") || "/";
+        applySiteConfig(normalizedPath);
+        const routeMatch = normalizedPath.match(
+          /^\/(game|blog|forum)\/([^/]+)$/,
+        );
+        const routeConfig = {
+          game: { items: gamesData, section: "games" },
+          blog: { items: blogsData, section: "blog" },
+          forum: { items: forumsData, section: "forums" },
+        };
+        let activeSection =
+          {
+            "/": "home",
+            "/games": "games",
+            "/blog": "blog",
+            "/forums": "forums",
+          }[normalizedPath] || null;
+
+        document
+          .querySelectorAll(".section")
+          .forEach((section) => section.classList.remove("active"));
+        if (routeMatch) {
+          const [, type, slug] = routeMatch;
+          const config = routeConfig[type];
+          const item = config.items.find(
+            (entry) => entry.slug === decodeURIComponent(slug),
+          );
+          activeSection = config.section;
+          document.getElementById("detail").classList.add("active");
+          if (item) {
+            renderDetail(item, type);
+          } else {
+            renderNotFound();
+          }
+        } else if (activeSection) {
+          document.getElementById(activeSection).classList.add("active");
+        } else {
+          document.getElementById("detail").classList.add("active");
+          renderNotFound();
+        }
+
+        document.querySelectorAll(".nav-link").forEach((link) => {
+          link.classList.toggle(
+            "active",
+            link.dataset.section === activeSection,
+          );
+        });
+      }
+
+      function renderNotFound() {
+        const content = document.getElementById("detail-content");
+        content.replaceChildren();
+        const message = document.createElement("p");
+        message.textContent = translations.not_found[currentLang];
+        content.append(message);
+      }
+
+      function getCurrentPath() {
+        if (
+          window.location.protocol === "file:" &&
+          window.location.hash.startsWith("#/")
+        ) {
+          return window.location.hash.slice(1);
+        }
+        return window.location.pathname;
+      }
+
+      function applyLanguage() {
+        const langBtn = document.getElementById("lang-btn");
+
+        // Actualizar el botón
+        langBtn.innerText = currentLang === "es" ? "🇺🇸 EN" : "🇪🇸 ES";
+
+        // Aplicar traducciones
+        const elements = document.querySelectorAll("[data-i18n]");
+        elements.forEach((el) => {
+          const key = el.getAttribute("data-i18n");
+          if (translations[key]?.[currentLang]) {
+            el.innerText = translations[key][currentLang];
+          }
+
+          const placeholderKey = el.getAttribute("data-i18n-placeholder");
+          if (placeholderKey && translations[placeholderKey]?.[currentLang]) {
+            el.setAttribute(
+              "placeholder",
+              translations[placeholderKey][currentLang],
+            );
+          }
+        });
+
+        // Actualizar atributo del html
+        document.documentElement.lang = currentLang;
+        document.querySelector('[data-i18n="footer_version"]').textContent =
+          `v${String(coreData.version).replace(/^v/i, "")}${coreData.state ? `-${coreData.state}` : ""}`;
+      }
+
+      function applySiteConfig(path = getCurrentPath()) {
+        const pageName = siteConfig.page_name;
+        const baseUrl = siteConfig.page_link.endsWith("/")
+          ? siteConfig.page_link
+          : `${siteConfig.page_link}/`;
+        const pageUrl = new URL(path === "/" ? "" : path.replace(/^\//, ""), baseUrl).href;
+        const pageTitle = `${pageName} | Juegos, historia y comunidad`;
+
+        document.getElementById("nav-brand").textContent = pageName;
+        document.title = pageTitle;
+        document.getElementById("canonical-link").href = pageUrl;
+        document.getElementById("og-url").content = pageUrl;
+        document.querySelector('meta[property="og:title"]').content = pageTitle;
+        document.querySelector('meta[name="twitter:title"]').content = pageTitle;
+      }
+
+      function toggleLanguage() {
+        currentLang = currentLang === "es" ? "en" : "es";
+        localStorage.setItem("language", currentLang);
+        applyLanguage();
+        renderCollections();
+        renderRoute();
+      }
+
+      renderCollections();
+      applyTheme();
+      applyLanguage();
+      renderRoute();
+    </script>
+  </body>
+</html>

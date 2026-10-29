@@ -1,0 +1,26 @@
+[
+  {
+    "slug": "el-legado-del-mando-duke",
+    "title": { "es": "El legado del mando 'Duke' en 2026", "en": "The legacy of the 'Duke' controller in 2026" },
+    "description": { "es": "La historia del mando original de Xbox y su lugar entre los controles más recordados.", "en": "The story of the original Xbox controller and its place among gaming’s most memorable designs." },
+    "content": { "es": "El **Duke** se convirtió en un símbolo de la primera Xbox. Su tamaño y distribución definieron una nueva forma de jugar.\n\nAspectos destacados:\n- Diseño reconocible\n- Construcción robusta", "en": "The **Duke** became a symbol of the first Xbox. Its size and layout helped define a new way to play.\n\nHighlights:\n- Distinctive design\n- Solid construction" },
+    "image": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=500&q=85",
+    "imageAlt": { "es": "Consola y mandos retro", "en": "Retro console and controllers" }
+  },
+  {
+    "slug": "reparar-lector-dvd-thompson",
+    "title": { "es": "Cómo reparar el lector de DVD Thompson", "en": "How to repair the Thompson DVD drive" },
+    "description": { "es": "Una guía de diagnóstico para los problemas habituales del lector óptico.", "en": "A troubleshooting guide for common optical drive issues." },
+    "content": { "es": "Antes de abrir la consola, comprueba los cables y el estado del disco. La limpieza y el diagnóstico cuidadoso ayudan a identificar si el problema está en el lector o en otra parte del sistema.", "en": "Before opening the console, check the cables and disc condition. Careful cleaning and diagnosis help determine whether the issue is in the drive or elsewhere in the system." },
+    "image": "https://images.unsplash.com/photo-1593305841991-05c297ba4575?auto=format&fit=crop&w=500&q=85",
+    "imageAlt": { "es": "Equipo de videojuegos para reparar", "en": "Gaming equipment ready for repair" }
+  },
+  {
+    "slug": "los-mejore-juegos-de-xbox",
+    "title": { "es": "Los mejores juegos de Xbox", "en": "The best Xbox games" },
+    "description": { "es": "Una selección de juegos para disfrutar en cooperativo local.", "en": "A selection of games to enjoy in local co-op." },
+    "content": { "es": "Desde campañas cooperativas hasta partidas competitivas en pantalla dividida, la Xbox original convirtió el juego en el sofá en una parte central de la experiencia.", "en": "From co-op campaigns to split-screen competition, the original Xbox made couch multiplayer a central part of the experience." },
+    "image": "https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?auto=format&fit=crop&w=500&q=85",
+    "imageAlt": { "es": "Partida de videojuegos en pantalla", "en": "Video game session on a screen" }
+  }
+]

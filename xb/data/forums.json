@@ -1,0 +1,29 @@
+[
+  {
+    "slug": "1",
+    "title": { "es": "Soporte Técnico y Modding", "en": "Tech Support & Modding" },
+    "description": { "es": "TSOP, softmods, cambio de HDD y más.", "en": "TSOP, softmods, HDD upgrades, and more." },
+    "content": { "es": "Comparte preguntas y soluciones sobre el mantenimiento, la reparación y la personalización de tu Xbox clásica.", "en": "Share questions and solutions about maintaining, repairing, and customizing your original Xbox." },
+    "image": "https://images.unsplash.com/photo-1593305841991-05c297ba4575?auto=format&fit=crop&w=500&q=85",
+    "imageAlt": { "es": "Equipo de videojuegos para mantenimiento", "en": "Gaming equipment for maintenance" },
+    "posts": 420
+  },
+  {
+    "slug": "2",
+    "title": { "es": "Discusión General de Juegos", "en": "General Game Discussion" },
+    "description": { "es": "Habla sobre tus títulos favoritos y comparte partidas.", "en": "Talk about your favorite titles and share gameplay." },
+    "content": { "es": "Recomienda juegos, comenta tus clásicos favoritos y encuentra a otras personas para jugar.", "en": "Recommend games, discuss your favorite classics, and find people to play with." },
+    "image": "https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?auto=format&fit=crop&w=500&q=85",
+    "imageAlt": { "es": "Juego cooperativo en pantalla", "en": "Co-op game on a screen" },
+    "posts": 1200
+  },
+  {
+    "slug": "3",
+    "title": { "es": "XLink Kai y Multijugador", "en": "XLink Kai & Multiplayer" },
+    "description": { "es": "Encuentra jugadores para partidas LAN online.", "en": "Find players for online LAN matches." },
+    "content": { "es": "Coordina partidas multijugador y conecta con la comunidad que mantiene vivos los modos LAN de Xbox.", "en": "Organize multiplayer sessions and connect with the community keeping Xbox LAN modes alive." },
+    "image": "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=500&q=85",
+    "imageAlt": { "es": "Comunidad reunida para jugar", "en": "Gaming community gathered to play" },
+    "posts": 350
+  }
+]
